@@ -1,0 +1,19 @@
+{
+  "generation": {
+    "count": 35,
+    "seed": 42
+  },
+  "paths": {
+    "form_pdf": "data/original/form.pdf",
+    "original_csv": "data/original/responses.template.csv",
+    "synthetic_csv": "data/synthetic/generated.csv",
+    "normalized_csv": "data/processed/normalized.csv",
+    "schema_json": "data/processed/form_schema.json",
+    "report_dir": "reports"
+  },
+  "submission": {
+    "form_url": "",
+    "allow_live_submission": true,
+    "delay_seconds": 2
+  }
+}

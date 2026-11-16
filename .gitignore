@@ -1,0 +1,13 @@
+.env
+__pycache__/
+.pytest_cache/
+*.py[cod]
+data/processed/*
+!data/processed/form_schema.json
+data/synthetic/*
+reports/*
+charts/*
+
+
+data/original/*
+!data/original/responses.template.csv

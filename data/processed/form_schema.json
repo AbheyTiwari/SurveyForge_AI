@@ -1,0 +1,222 @@
+{
+  "title": "टेक्नीशियन सर्वे — घरेलू मरम्मत सेवाएँ",
+  "language": "hi",
+  "source_pdf": "form.pdf",
+  "page_count": 18,
+  "description": "PDF text was cross-checked with response export headers. Google Forms PDF export does not expose all validation/branching settings.",
+  "pdf_text_chars": 8982,
+  "questions": [
+    {
+      "id": "q01",
+      "title": "1. आप कौन-सा काम करते हैं?",
+      "required": true,
+      "type": "choice",
+      "options": []
+    },
+    {
+      "id": "q02",
+      "title": "2. आपको यह काम करते हुए कितना समय हो गया है?",
+      "required": true,
+      "type": "text_or_numeric_range",
+      "options": []
+    },
+    {
+      "id": "q03",
+      "title": "3. आप आमतौर पर कहाँ काम करते हैं?",
+      "required": true,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "q04",
+      "title": "4. आप किस तरह काम करते हैं?",
+      "required": true,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "q05",
+      "title": "5. क्या आपके पास अपने काम के औजार हैं?",
+      "required": true,
+      "type": "choice",
+      "options": []
+    },
+    {
+      "id": "q06",
+      "title": "6. आपको ग्राहक कहाँ से मिलते हैं? (एक से अधिक चुन सकते हैं)",
+      "required": true,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "q07",
+      "title": "7. क्या आपको हर हफ्ते पर्याप्त काम मिल जाता है?",
+      "required": true,
+      "type": "choice",
+      "options": []
+    },
+    {
+      "id": "q08",
+      "title": "8. एक सामान्य दिन में आपको कितने काम मिलते हैं?",
+      "required": true,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "q09",
+      "title": "9. काम मिलने में सबसे बड़ी परेशानी क्या है?",
+      "required": true,
+      "type": "choice",
+      "options": []
+    },
+    {
+      "id": "q10",
+      "title": "10. क्या कभी ऐसा होता है कि काम न मिलने के कारण आपको खाली बैठना पड़ता है?",
+      "required": true,
+      "type": "choice",
+      "options": []
+    },
+    {
+      "id": "q11",
+      "title": "11. एक महीने में आपकी लगभग कितनी कमाई होती है? (सभी खर्च काटने से पहले)",
+      "required": true,
+      "type": "text_or_numeric_range",
+      "options": []
+    },
+    {
+      "id": "q12",
+      "title": "12. एक सामान्य छोटे काम के लिए आप कितनी मजदूरी लेते हैं?",
+      "required": true,
+      "type": "text_or_numeric_range",
+      "options": []
+    },
+    {
+      "id": "q13",
+      "title": "13. ग्राहक तक पहुँचने में एक तरफ का लगभग कितना खर्च होता है?",
+      "required": true,
+      "type": "text_or_numeric_range",
+      "options": []
+    },
+    {
+      "id": "q14",
+      "title": "14. ग्राहक से पैसे कब मिलते हैं?",
+      "required": true,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "q15",
+      "title": "15. क्या आप ऐसे प्लेटफॉर्म से जुड़ना चाहेंगे?",
+      "required": true,
+      "type": "choice",
+      "options": []
+    },
+    {
+      "id": "q16",
+      "title": "16. ऐसा प्लेटफॉर्म आपके लिए किस तरह मददगार हो सकता है?",
+      "required": true,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "q17",
+      "title": "17. प्लेटफॉर्म से जुड़ने में आपको किस बात की चिंता होगी?",
+      "required": true,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "q18",
+      "title": "18. क्या आप मोबाइल पर ऐप या WhatsApp इस्तेमाल कर सकते हैं?",
+      "required": true,
+      "type": "choice",
+      "options": []
+    },
+    {
+      "id": "q19",
+      "title": "19. आप किस इलाके में काम लेना पसंद करेंगे?",
+      "required": true,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "q20",
+      "title": "20. अगर प्लेटफॉर्म आपको ग्राहक दिलाए, तो आप कितना कमीशन देना ठीक समझेंगे?",
+      "required": true,
+      "type": "text_or_numeric_range",
+      "options": []
+    },
+    {
+      "id": "q21",
+      "title": "21. आपको कौन-सा भुगतान तरीका पसंद होगा?",
+      "required": true,
+      "type": "choice",
+      "options": []
+    },
+    {
+      "id": "q22",
+      "title": "22. आप प्लेटफॉर्म से जुड़ने के लिए कोई फीस देना चाहेंगे?",
+      "required": true,
+      "type": "text_or_numeric_range",
+      "options": []
+    },
+    {
+      "id": "q23",
+      "title": "23. अगर प्लेटफॉर्म पर काम मिले, तो आप कितनी जल्दी ग्राहक के पास पहुँच सकते हैं?",
+      "required": true,
+      "type": "text_or_numeric_range",
+      "options": []
+    },
+    {
+      "id": "q24",
+      "title": "24. क्या ग्राहक अक्सर आपको सीधे दोबारा काम के लिए बुलाते हैं?",
+      "required": true,
+      "type": "choice",
+      "options": []
+    },
+    {
+      "id": "q25",
+      "title": "25. अगर किसी ऐप से ग्राहक मिले और बाद में वही ग्राहक आपको सीधे बुलाए, तो आप क्या करेंगे?",
+      "required": true,
+      "type": "choice",
+      "options": []
+    },
+    {
+      "id": "q26",
+      "title": "26. ग्राहक आपके पास दोबारा क्यों आते हैं?",
+      "required": true,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "q27",
+      "title": "27. आपके हिसाब से टेक्नीशियन के लिए सबसे जरूरी मदद क्या है?",
+      "required": true,
+      "type": "choice",
+      "options": []
+    },
+    {
+      "id": "q28",
+      "title": "28. इस तरह के प्लेटफॉर्म को बेहतर बनाने के लिए आपकी कोई सलाह?",
+      "required": true,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "q29",
+      "title": "29. क्या हम जरूरत पड़ने पर आपसे दोबारा संपर्क कर सकते हैं?",
+      "required": true,
+      "type": "choice",
+      "options": []
+    },
+    {
+      "id": "q30",
+      "title": "30. यदि हाँ, तो अपना नाम या मोबाइल नंबर लिखें (वैकल्पिक)",
+      "required": false,
+      "type": "text",
+      "options": [],
+      "sensitive": true,
+      "exclude_from_synthetic": true
+    }
+  ]
+}

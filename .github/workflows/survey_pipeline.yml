@@ -1,0 +1,102 @@
+name: SurveyForge CI/CD
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      count:
+        description: Number of synthetic responses
+        required: true
+        default: '35'
+        type: string
+      start_index:
+        description: Skip leading rows when resuming after a partial submission
+        required: true
+        default: '0'
+        type: string
+      form_url:
+        description: Google Forms responder link to use for this run
+        required: true
+        type: string
+      stage:
+        description: Pipeline stage
+        required: true
+        default: run
+        type: choice
+        options: [inspect, run, generate, validate, analyze, submit]
+      confirm_live_submission:
+        description: Required only when stage is submit
+        required: true
+        default: false
+        type: boolean
+jobs:
+  surveyforge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Run tests
+        run: python -m pytest -q
+      - name: Run selected stage
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          XAI_MODEL: ${{ secrets.XAI_MODEL }}
+          PIPELINE_STAGE: ${{ inputs.stage || 'run' }}
+          RESPONSE_COUNT: ${{ inputs.count || '35' }}
+          START_INDEX: ${{ inputs.start_index || '0' }}
+          FORM_URL: ${{ inputs.form_url || '' }}
+          CONFIRM_LIVE_SUBMISSION: ${{ inputs.confirm_live_submission || false }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            if [ -z "$FORM_URL" ]; then
+              echo "A Google Forms responder URL is required for manual runs."
+              exit 1
+            fi
+            FORM_URL="$(python -c 'import os; from src.form_inspector import normalize_form_url; print(normalize_form_url(os.environ["FORM_URL"]))')"
+            export FORM_URL
+            python - <<'PY'
+          import json, os
+          from pathlib import Path
+          config = Path('config.yaml')
+          data = json.loads(config.read_text(encoding='utf-8'))
+          data.setdefault('submission', {})['form_url'] = os.environ['FORM_URL']
+          config.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+          fi
+          if [ "$PIPELINE_STAGE" = "inspect" ]; then
+            python main.py inspect-form --url "$FORM_URL"
+          elif [ "$PIPELINE_STAGE" = "submit" ]; then
+            if [ "$CONFIRM_LIVE_SUBMISSION" != "true" ]; then
+              echo "Live submission requires confirm_live_submission=true."
+              exit 1
+            fi
+            python main.py inspect-form --url "$FORM_URL"
+            python main.py generate --count "$RESPONSE_COUNT"
+            python main.py submit --live --start-index "$START_INDEX"
+          else
+            if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && { [ "$PIPELINE_STAGE" = "run" ] || [ "$PIPELINE_STAGE" = "generate" ]; }; then
+              python main.py inspect-form --url "$FORM_URL"
+            fi
+            python main.py "$PIPELINE_STAGE" --count "$RESPONSE_COUNT"
+          fi
+      - name: Upload outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surveyforge-output
+          path: |
+            data/synthetic/
+            data/processed/
+            reports/
+          if-no-files-found: warn
+
